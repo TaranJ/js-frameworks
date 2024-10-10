@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer class="bg-secondary">
+    <footer className="purple">
       <p>© 2024 Fëanor</p>
     </footer>
   );

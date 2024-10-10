@@ -1,11 +1,14 @@
 import Header from "../Header";
 import Footer from "../Footer";
 
-function Layout() {
+function Layout({ cartItemCount, onCartClick, children }) {
+  // Accept children
   return (
     <>
-      <Header />
-      <main className="main-content"></main>
+      <Header cartItemCount={cartItemCount} onCartClick={onCartClick} />
+      <main className="main-content">
+        {children} {/* Render the children here */}
+      </main>
       <Footer />
     </>
   );
