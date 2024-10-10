@@ -1,8 +1,10 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import CartIcon from "../CartIcon";
 
-function Header() {
+function Header({ cartItemCount, onCartClick }) {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -13,9 +15,11 @@ function Header() {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#contact">Contact Us</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="#cart">Cart</Nav.Link>
-          </Nav>
+          <div className="ml-auto">
+            {" "}
+            {/* Use margin-left auto for right alignment */}
+            <CartIcon itemCount={cartItemCount} onClick={onCartClick} />
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,10 +1,10 @@
 import Header from "../Header";
 import Footer from "../Footer";
 
-function Layout() {
+function Layout({ cartItemCount, onCartClick }) {
   return (
     <>
-      <Header />
+      <Header cartItemCount={cartItemCount} onCartClick={onCartClick} />
       <main className="main-content"></main>
       <Footer />
     </>
