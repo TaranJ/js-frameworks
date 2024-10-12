@@ -6,7 +6,7 @@ function CartIcon({ itemCount, onClick }) {
   return (
     <div className="cart-icon-container" onClick={onClick}>
       <Button variant="link">
-        <FaShoppingCart size={24} style={{ color: "black" }} />
+        <FaShoppingCart size={24} style={{ color: "white" }} />
         {itemCount > 0 && <Badge>{itemCount}</Badge>}
       </Button>
     </div>
