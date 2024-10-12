@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "../utils/api";
 import Product from "../components/Product";
+import SearchBar from "../components/SearchBar";
 import { Container, Row, Col } from "react-bootstrap";
 
 function HomePage() {
-  const [products, setProducts] = useState([]); // Ensure products is initialized as an array
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -15,7 +17,8 @@ function HomePage() {
         setIsLoading(true);
         const response = await fetchProducts();
         console.log(response);
-        setProducts(response.data); // Store the data in the state
+        setProducts(response.data);
+        setFilteredProducts(response.data);
       } catch (error) {
         setIsError(true);
       } finally {
@@ -36,8 +39,9 @@ function HomePage() {
 
   return (
     <Container className="homepage">
+      <SearchBar products={products} />
       <Row className="mb-4">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="d-flex mb-4">
             <Product id={product.id} title={product.title} description={product.description} price={product.price} image={product.image} />
           </Col>
