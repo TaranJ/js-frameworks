@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./styles.scss";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import "./styles/styles.scss";
 
 // Components
 import Layout from "./components/Layout";
@@ -13,24 +13,34 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 
 function App() {
-  const [cartItemCount, setCartItemCount] = useState(0); // Initialize cart item count
+  const [cart, setCart] = useState([]); // Initialize cart state to store products
+  const navigate = useNavigate(); // Get the navigate function
 
+  // Function to handle cart icon click
   const handleCartClick = () => {
-    // Logic to open the cart page or handle cart click
-    console.log("Cart clicked!");
+    navigate("/checkout"); // Navigate to the CheckoutPage
   };
 
-  // Function to update the cart item count (e.g., when items are added)
-  const addToCart = () => {
-    setCartItemCount(cartItemCount + 1); // Increment cart item count
+  // Function to add items to the cart
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]); // Add product to cart
   };
+
+  // Function to clear the cart
+  const clearCart = () => {
+    setCart([]); // Clear cart items
+  };
+
   return (
-    <Layout>
+    <Layout
+      cartItemCount={cart.length}
+      onCartClick={handleCartClick} // Pass the click handler to Layout
+    >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
+        <Route path="/checkout" element={<CheckoutPage cart={cart} clearCart={clearCart} />} />
         <Route path="/checkout-success" element={<CheckoutSuccessPage />} />
       </Routes>
     </Layout>

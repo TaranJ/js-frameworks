@@ -1,0 +1,25 @@
+// $blue: ;
+// $indigo: #6610f2;
+// $purple: #6f42c1;
+// $pink: #d63384;
+$red: #885152;
+// $orange: ;
+// $yellow: #ffc107;
+// $green: #90a18a;
+// $teal: #80a984;
+// $cyan: ;
+
+$primary: #6a5873;
+$secondary: $red;
+$light: #b5acbc;
+$danger: #532e37;
+
+.btn-primary:hover {
+  background-color: #6a5873;
+  border-color: #6a5873;
+}
+
+.btn-primary {
+  background-color: #885152;
+  border-color: #885152;
+}
