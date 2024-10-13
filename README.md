@@ -49,6 +49,7 @@ npm run start
 ## Author
 
 Taran Johannessen
+
 Email: taran.91@hotmail.com
 
 ### Acknowledgments
