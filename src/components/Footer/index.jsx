@@ -1,8 +1,16 @@
+import React from "react";
+import styled from "styled-components";
+
+const FooterContainer = styled.footer`
+  padding: 10px;
+  text-align: center;
+`;
+
 function Footer() {
   return (
-    <footer className="purple">
+    <FooterContainer>
       <p>© 2024 Fëanor</p>
-    </footer>
+    </FooterContainer>
   );
 }
 
