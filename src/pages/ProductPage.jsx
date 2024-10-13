@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { fetchProductById } from "../utils/api";
 import { Button, Card, CardBody, CardFooter, CardImg, CardText, CardTitle, ListGroup, Row, Col } from "react-bootstrap";
@@ -66,6 +67,10 @@ function ProductPage({ addToCart }) {
 
   return (
     <div className="product-page container mt-5 mb-4">
+      <Helmet>
+        <title>{product.title} | Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
       <Card>
         <Row>
           <Col md={6}>

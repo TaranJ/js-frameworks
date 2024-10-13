@@ -1,7 +1,8 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components"; // Import styled-components
+import styled from "styled-components";
 
 // Styled component for the container
 const CheckoutContainer = styled.div`
@@ -40,6 +41,10 @@ function CheckoutPage({ cart, clearCart }) {
 
   return (
     <CheckoutContainer className="container">
+      <Helmet>
+        <title>Checkout | Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
       <Heading>Your Shopping Cart</Heading>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>

@@ -9,10 +9,6 @@
   border-color: #885152;
 }
 
-footer {
-  background-color: #532e37;
-}
-
 body {
   background-color: #1d1d1d;
   color: white;
@@ -39,20 +35,14 @@ a {
 
 /* Navbar styles */
 .navbar {
-  width: 100%;
+  background-color: #1d1d1d;
   padding: 20px;
+  max-width: 1340px;
   margin: auto;
-  border-bottom: 3px solid #6a5873;
 }
 
 .navbar-nav .nav-link:hover {
   color: #ca6a6c;
-}
-
-.navbar-brand:hover {
-  color: #bbb;
-  font-weight: bolder;
-  font-size: 1.5em;
 }
 
 .navbar-toggler {
@@ -73,8 +63,8 @@ input::placeholder {
   color: #bbb;
 }
 
-input[type=text],
-input[type=search],
+input[type="text"],
+input[type="search"],
 input,
 textarea {
   background-color: #2c2c2c; /* Dark background for inputs */
@@ -84,7 +74,8 @@ textarea {
   padding: 0.5rem; /* Optional: Add padding for better spacing */
 }
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: #bbb;
 }
 
@@ -114,4 +105,4 @@ textarea::placeholder {
   color: white;
   border-color: #555;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
