@@ -4,24 +4,20 @@ import { ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-// Styled component for the container
 const CheckoutContainer = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
 `;
 
-// Styled component for the heading
 const Heading = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
-// Styled component for the total price
 const TotalPrice = styled.h5`
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 `;
 
-// Styled component for the image
 const ProductImage = styled.img`
   width: 50px;
   height: auto;

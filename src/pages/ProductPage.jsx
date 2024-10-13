@@ -5,19 +5,16 @@ import { fetchProductById } from "../utils/api";
 import { Button, Card, CardBody, CardFooter, CardImg, CardText, CardTitle, ListGroup, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
-// Styled component for the price container
 const PriceContainer = styled.div`
   margin: 10px 0;
 `;
 
-// Styled component for the discounted price
 const DiscountedPrice = styled.span`
   font-weight: bold;
   font-size: 1.2rem;
   color: #ca6a6c;
 `;
 
-// Styled component for the original price
 const OriginalPrice = styled.span`
   text-decoration: line-through;
   margin-left: 0.5rem;
@@ -25,7 +22,6 @@ const OriginalPrice = styled.span`
   font-size: 0.8rem;
 `;
 
-// Styled component for the savings text
 const Savings = styled.span`
   margin-left: 0.5rem;
   color: red;
