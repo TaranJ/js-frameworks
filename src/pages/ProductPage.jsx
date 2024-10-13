@@ -1,7 +1,36 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { fetchProductById } from "../utils/api";
 import { Button, Card, CardBody, CardFooter, CardImg, CardText, CardTitle, ListGroup, Row, Col } from "react-bootstrap";
+import styled from "styled-components";
+
+// Styled component for the price container
+const PriceContainer = styled.div`
+  margin: 10px 0;
+`;
+
+// Styled component for the discounted price
+const DiscountedPrice = styled.span`
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ca6a6c;
+`;
+
+// Styled component for the original price
+const OriginalPrice = styled.span`
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+  color: gray;
+  font-size: 0.8rem;
+`;
+
+// Styled component for the savings text
+const Savings = styled.span`
+  margin-left: 0.5rem;
+  color: red;
+  font-size: 0.9rem;
+`;
 
 function ProductPage({ addToCart }) {
   const { id } = useParams();
@@ -33,11 +62,15 @@ function ProductPage({ addToCart }) {
   }
 
   const handleAddToCart = () => {
-    addToCart(product); // Call addToCart with the product
+    addToCart(product);
   };
 
   return (
     <div className="product-page container mt-5 mb-4">
+      <Helmet>
+        <title>{product.title} | Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
       <Card>
         <Row>
           <Col md={6}>
@@ -48,15 +81,15 @@ function ProductPage({ addToCart }) {
               <CardTitle>{product.title}</CardTitle>
               <CardText>{product.description}</CardText>
 
-              <CardText>
-                <strong>Price: ${product.discountedPrice.toFixed(2)}</strong>
+              <PriceContainer>
+                <DiscountedPrice>Price: ${product.discountedPrice.toFixed(2)}</DiscountedPrice>
                 {product.discountedPrice < product.price && (
                   <>
-                    <span style={{ textDecoration: "line-through", marginLeft: "0.5rem" }}>${product.price.toFixed(2)}</span>
-                    <span style={{ marginLeft: "0.5rem", color: "red" }}>Save ${(product.price - product.discountedPrice).toFixed(2)}</span>
+                    <OriginalPrice>${product.price.toFixed(2)}</OriginalPrice>
+                    <Savings>Save ${(product.price - product.discountedPrice).toFixed(2)}</Savings>
                   </>
                 )}
-              </CardText>
+              </PriceContainer>
 
               <Button variant="primary" onClick={handleAddToCart}>
                 Add to Cart

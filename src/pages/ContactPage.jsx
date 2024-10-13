@@ -1,5 +1,20 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Form, Button, Alert } from "react-bootstrap";
+import styled from "styled-components";
+
+const Container = styled.div`
+  margin: 2rem auto;
+  max-width: 800px;
+`;
+
+const StyledButton = styled(Button)`
+  margin-top: 1.5rem;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 1.5rem;
+`;
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -60,8 +75,12 @@ function ContactPage() {
   };
 
   return (
-    <div className="contact-page container mt-5">
-      <h2>Contact Us</h2>
+    <Container className="contact-page">
+      <Helmet>
+        <title>Contact | Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
+      <Title>Contact Us</Title>
       {success && <Alert variant="success">Your message has been sent!</Alert>}
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formFullName">
@@ -88,11 +107,11 @@ function ContactPage() {
           <Form.Control.Feedback type="invalid">{errors.body}</Form.Control.Feedback>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <StyledButton variant="primary" type="submit">
           Submit
-        </Button>
+        </StyledButton>
       </Form>
-    </div>
+    </Container>
   );
 }
 

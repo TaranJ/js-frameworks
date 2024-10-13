@@ -11,6 +11,7 @@ body {
 .navbar-brand,
 .navbar-nav .nav-link,
 .navbar-toggler,
+.list-group-item,
 h5,
 input,
 textarea,
@@ -19,7 +20,8 @@ a {
 }
 
 /* Card styles */
-.card {
+.card,
+.list-group-item {
   background-color: #2c2c2c;
 }
 
@@ -63,15 +65,19 @@ input::placeholder {
   color: #bbb;
 }
 
-input[type=text],
 input[type=search],
 input,
-textarea {
-  background-color: #2c2c2c; /* Dark background for inputs */
-  color: white; /* White text for inputs */
-  border: 1px solid #444; /* Optional: Dark border for inputs */
-  border-radius: 4px; /* Optional: Add some rounding to corners */
-  padding: 0.5rem; /* Optional: Add padding for better spacing */
+.form-control {
+  background-color: #2c2c2c;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.form-control:focus {
+  outline: 2px solid #532e37;
+  outline-offset: 2px;
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {

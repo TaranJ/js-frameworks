@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet"; //
 import { fetchProducts } from "../utils/api";
 import Product from "../components/Product";
 import SearchBar from "../components/SearchBar";
@@ -16,7 +17,6 @@ function HomePage() {
         setIsError(false);
         setIsLoading(true);
         const response = await fetchProducts();
-        console.log(response);
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {
@@ -39,6 +39,10 @@ function HomePage() {
 
   return (
     <Container className="homepage">
+      <Helmet>
+        <title>Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
       <SearchBar products={products} />
       <Row className="mb-4">
         {filteredProducts.map((product) => (

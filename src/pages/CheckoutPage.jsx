@@ -1,6 +1,32 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+// Styled component for the container
+const CheckoutContainer = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
+// Styled component for the heading
+const Heading = styled.h2`
+  margin-bottom: 1.5rem;
+`;
+
+// Styled component for the total price
+const TotalPrice = styled.h5`
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+// Styled component for the image
+const ProductImage = styled.img`
+  width: 50px;
+  height: auto;
+  margin-right: 1rem;
+`;
 
 function CheckoutPage({ cart, clearCart }) {
   const navigate = useNavigate();
@@ -14,29 +40,36 @@ function CheckoutPage({ cart, clearCart }) {
   const totalPrice = cart.reduce((total, product) => total + product.discountedPrice, 0);
 
   return (
-    <div className="checkout-page container mt-5">
-      <h2>Your Shopping Cart</h2>
+    <CheckoutContainer className="container">
+      <Helmet>
+        <title>Checkout | Fëanor</title>
+        <meta name="description" content="An eCom store." />
+      </Helmet>
+      <Heading>Your Shopping Cart</Heading>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <ListGroup>
           {cart.map((product, index) => (
-            <ListGroup.Item key={index}>
-              <div>{product.title}</div>
-              <div>Price: ${product.discountedPrice.toFixed(2)}</div>
+            <ListGroup.Item key={index} className="d-flex align-items-center">
+              <ProductImage src={product.image.url} alt={product.title} />
+              <div>
+                <div>{product.title}</div>
+                <div>Price: ${product.discountedPrice.toFixed(2)}</div>
+              </div>
             </ListGroup.Item>
           ))}
         </ListGroup>
       )}
       {cart.length > 0 && (
         <>
-          <h5 className="mt-3">Total Price: ${totalPrice.toFixed(2)}</h5>
+          <TotalPrice>Total Price: ${totalPrice.toFixed(2)}</TotalPrice>
           <Button variant="primary" onClick={handleCheckout}>
             Checkout
           </Button>
         </>
       )}
-    </div>
+    </CheckoutContainer>
   );
 }
 

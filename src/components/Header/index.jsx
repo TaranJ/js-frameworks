@@ -10,11 +10,11 @@ const StyledToggleButton = styled.button`
   background: transparent;
   border: none;
   color: white;
-  font-size: 24px; /* Adjust size as needed */
+  font-size: 24px;
   cursor: pointer;
 
   &:hover {
-    color: #ca6a6c; /* Change color on hover */
+    color: #ca6a6c;
   }
 `;
 
