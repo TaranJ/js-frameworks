@@ -15,11 +15,15 @@ $light: #b5acbc;
 $danger: #532e37;
 
 .btn-primary:hover {
-  background-color: #6a5873;
-  border-color: #6a5873;
+  background-color: $primary;
+  border-color: $primary;
 }
 
 .btn-primary {
-  background-color: #885152;
-  border-color: #885152;
+  background-color: $red;
+  border-color: $red;
+}
+
+footer {
+  background-color: $danger;
 }
