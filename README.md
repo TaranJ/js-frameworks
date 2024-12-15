@@ -2,6 +2,8 @@
 
 ## Fëanor
 
+![image](https://taranj.github.io/portfolio2/assets/feanor-BGc2m7t8.jpg)
+
 ### Description
 
 This is a website for an imagined eCom store called Fëanor. Designing and creating it was an assignment in Javascript frameworks for the front-end course at Noroff School of technology and digital media
